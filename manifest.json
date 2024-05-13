@@ -1,0 +1,39 @@
+{
+  "manifest_version": 3,
+  "name": "Event Listener",
+  "version": "1.0",
+  "description": "A Chrome extension to find local events for users.",
+  "icons": {
+    "16": "Manifest Logo/manifest16.png",
+    "48": "Manifest Logo/manifest48.png",
+    "128": "Manifest Logo/manifest128.png"
+  },
+  "action": {
+    "default_popup": "index.html",
+    "default_icon": {
+      "16": "Manifest Logo/manifest16.png",
+      "48": "Manifest Logo/manifest48.png",
+      "128": "Manifest Logo/manifest128.png"
+    }
+  },
+  "permissions": [
+    "activeTab"
+  ],
+  "host_permissions": [
+    "https://api.seatgeek.com/*",
+    "https://api.unsplash.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": ["index.html", "script.js", "styles.css"],
+      "matches": ["<all_urls>"]
+    }
+  ],
+  "content_security_policy": {
+    "extension_pages": "script-src 'self'; object-src 'self'"
+  },
+  "background": {
+    "service_worker": "background.js"
+  }
+}
+
